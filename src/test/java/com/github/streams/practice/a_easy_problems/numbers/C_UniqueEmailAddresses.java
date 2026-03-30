@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
  */
 class C_UniqueEmailAddresses {
   @Test
-  @Disabled
   void uniqueEmailAddresses() {
     final var input =
         List.of(
@@ -24,7 +23,7 @@ class C_UniqueEmailAddresses {
             );
 
     final var mySolution = EasyNumbersProblemSolution.uniqueEmailAddresses(input);
-    final var yourSolution = List.of();
+    final var yourSolution = input.stream().distinct().toList();
 
     Assertions.assertEquals(mySolution, yourSolution);
   }

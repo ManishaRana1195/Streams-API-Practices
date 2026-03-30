@@ -1,6 +1,8 @@
 package com.github.streams.practice.a_easy_problems.numbers;
 
 import java.util.List;
+import java.util.function.Predicate;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -16,12 +18,11 @@ import org.junit.jupiter.api.Test;
 class A_CountEvenNumbers {
 
   @Test
-  @Disabled
   void countEvenNumbers() {
     final var input = List.of(1, 2, 3, 4, 5, 6, 7);
 
     final var mySolution = EasyNumbersProblemSolution.countNumberOfEvenNumbers(input);
-    final var yourSolution = -1L; // WRITE YOUR IMPLEMENTATION HERE//
+    final var yourSolution = input.parallelStream().filter(integer -> integer% 2 == 0).count(); // WRITE YOUR IMPLEMENTATION HERE//
 
     Assertions.assertEquals(
         mySolution,

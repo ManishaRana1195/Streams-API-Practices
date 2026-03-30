@@ -1,6 +1,9 @@
 package com.github.streams.practice.a_easy_problems.numbers;
 
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -15,12 +18,11 @@ import org.junit.jupiter.api.Test;
 class B_MapCelsiusToFahrenheit {
 
   @Test
-  @Disabled
   void convertCelsiusToFahrenheit() {
     final var input = List.of(0, 10, 25, 37, 100);
 
     final var mySolution = EasyNumbersProblemSolution.convertCelsiusToFahrenheit(input);
-    final var yourSolution = List.<Double>of(); // WRITE YOUR IMPLEMENTATION HERE//
+    final var yourSolution = input.stream().map(celsius -> ((celsius * 9.0)/5.0) + 32).collect(Collectors.toList()); // WRITE YOUR IMPLEMENTATION HERE//
 
     Assertions.assertEquals(
         mySolution,
